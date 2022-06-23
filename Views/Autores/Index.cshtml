@@ -1,0 +1,53 @@
+@model IEnumerable<SiteNoticias.Models.Autor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Autores</h1>
+
+<p>
+    <a asp-action="Create">Crie um novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Historia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Historia)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AutorID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AutorID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AutorID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
